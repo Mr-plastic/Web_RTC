@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+  web:
+    image: nginx:latest
+    volumes:
+      - type: bind
+        source: ./config/default.conf
+        target: /etc/nginx/conf.d/default.conf
+      - type: bind
+        source: ./views
+        target: /var/www/app
+      - type: bind
+        source: ./config/localhost.dev.crt
+        target: /etc/ssl/certs/localhost.dev.crt
+      - type: bind
+        source: ./config/localhost.dev.key
+        target: /etc/ssl/private/localhost.dev.key
+    ports:
+      - "8080:80"
+      - "443:443"
+
+
