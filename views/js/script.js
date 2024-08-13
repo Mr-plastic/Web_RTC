@@ -2,8 +2,11 @@ const socket = io('/')
 const videogrid = document.getElementById('video-grid')
 const callBtn = document.getElementById('call')
 const myPeer = new Peer(undefined,{
-    host:'/',
-    port:'8081'
+    host:'127.0.0.1',
+    port:'9000',
+    path: '/',
+    proxied: true,
+
 })
 const myVideo = document.createElement('video')
 myVideo.muted = true
