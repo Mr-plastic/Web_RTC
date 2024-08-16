@@ -8,7 +8,7 @@ const { v4: uuidV4 } = require('uuid') /*從uuid模組中提取出v4方法到 uu
 
 
 
-app.use(express.static('public'))
+// app.use(express.static('public'))
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
