@@ -19,28 +19,6 @@ services:
     ports:
       - "8080:80"
       # - "443:443"
-  peerjs:
-    image: node:14
-    working_dir: /var/www/app
-    volumes:
-      - type: bind
-        source: ./web-peer/web-peer.js
-        target: /var/www/app/web-peer.js
-      - type: bind
-        source: ./web-peer/package.json
-        target: /var/www/app/package.json
-      - type: bind
-        source: ./web-peer/package-lock.json
-        target: /var/www/app/package-lock.json
-      # - type: bind
-      #   source: ./config/localhost.dev.crt
-      #   target: /var/www/app/localhost.dev.crt
-      # - type: bind
-      #   source: ./config/localhost.dev.key
-      #   target: /var/www/app/localhost.dev.key
-    command: ["sh", "-c", "npm install && node web-peer.js"] 
-    ports: 
-      - "9000:9000"
 
 
 
