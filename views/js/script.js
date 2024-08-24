@@ -1,10 +1,9 @@
-const socket = io('/')
+const socket = io()
 const videogrid = document.getElementById('video-grid')
-// const callBtn = document.getElementById('call')
+const callBtn = document.getElementById('call')
 const myPeer = new Peer(undefined,{
-    host:'127.0.0.1',
+    host: '/',
     port:'9000',
-    path: '/web-peer',
     proxied: true,
 })
 const myVideo = document.createElement('video')
@@ -16,16 +15,19 @@ navigator.mediaDevices.getUserMedia({
     audio: true
 }).then(stream =>{
     addVideoStream(myVideo,stream)
-
     myPeer.on('call',call =>{
         call.answer(stream)
         const video = document.createElement('video')
         call.on('stream',userVideoStream =>{
             addVideoStream(video, userVideoStream)
         })
+        call.on('error', err=> {
+            console.log('Call failed',err);
+        })
     })
 
     socket.on('user-connected', userId =>{
+        console.log(userId)
         connectToNewUser(userId,stream)
     })
 })
@@ -39,9 +41,13 @@ myPeer.on('open', id =>{
 })
 
 function connectToNewUser(userId, stream){
+    console.log("视频轨道数量:", stream.getVideoTracks().length);
+    console.log("音频轨道数量:", stream.getAudioTracks().length);
     const call = myPeer.call(userId, stream)
     const video = document.createElement('video')
+    // console.log("正在連接新用戶")
     call.on('stream', userVideoStream =>{
+        console.log("正在連接新用戶")
         addVideoStream(video, userVideoStream)
     })
     call.on('close',() =>{

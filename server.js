@@ -1,6 +1,4 @@
 const express = require('express')
-const path = require('path');
-const { Socket } = require('socket.io')
 const app = express()
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
@@ -16,7 +14,6 @@ app.use(express.urlencoded({ extended: false }));
 app.post("/createroom", (req, res) => {
     const newRoomId = uuidV4()
     res.json({ redirectUrl: `/room/${newRoomId}` })
-    console.log(req.body)
 })
 
 io.on('connection', socket => {

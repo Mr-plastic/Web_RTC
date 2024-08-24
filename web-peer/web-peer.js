@@ -13,5 +13,5 @@ const peerServer = ExpressPeerServer(server, {
 	// },
 });
 
-app.use("/web-peer", peerServer);
+app.use("/", peerServer);
 
