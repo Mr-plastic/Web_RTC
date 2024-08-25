@@ -10,6 +10,7 @@ let creator = false;
 let rtcPeerConnection;
 let userStream;
 
+userVideo.muted = true
 // Contains the stun server URL we will be using.
 let iceServers = {
   iceServers: [
@@ -26,8 +27,6 @@ joinButton.addEventListener("click", function () {
     socket.emit("join", roomName);
   }
 });
-
-// Triggered when a room is succesfully created.
 
 socket.on("created", function () {
   creator = true;

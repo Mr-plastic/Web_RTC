@@ -19,6 +19,16 @@ services:
     ports:
       - "8080:80"
       # - "443:443"
+  backend:
+    image: node:latest
+    volumes:
+      - type: bind
+        source: ./backend
+        target: /var/www/app
+    working_dir: /var/www/app
+    command: ["npm", "run", "devStart"]
+      
+
 
 
 

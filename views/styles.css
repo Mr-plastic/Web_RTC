@@ -1,65 +1,93 @@
 body {
-  background-color: black;
-  font-family: "Helvetica";
+  background-color: #1c1c1c;
+  font-family: 'Roboto', sans-serif;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  flex-direction: column;
+  text-align: center;
+}
+
+.card {
+  background-color: #2c2c2c;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 90%; 
+  max-width: 400px; 
+  margin: 20px;
 }
 
 h2 {
-  font-size: 18px;
-  padding: 10px 20px;
-  color: #ffffff;
-}
-
-#video-chat-lobby {
-  text-align: center;
-  max-width: 600px;
-  background-color: #141414;
-  margin: 30px auto;
-}
-
-#chat-window {
-  height: 400px;
-  overflow: auto;
-  background: #f9f9f9;
-}
-
-#output p {
-  padding: 14px 0px;
-  margin: 0 20px;
-  border-bottom: 1px solid #e9e9e9;
-  color: #555;
-}
-
-#feedback p {
-  color: #aaa;
-  padding: 14px 0px;
-  margin: 0 20px;
-}
-
-#output strong {
-  color: #000000;
-}
-
-label {
-  box-sizing: border-box;
-  display: block;
-  padding: 10px 20px;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #f5f5f5;
 }
 
 input {
-  padding: 20px;
-  box-sizing: border-box;
-  background: #eee;
-  display: block;
-  width: 100%;
-  background: rgb(255, 253, 253);
-  font-family: Nunito;
+  padding: 12px;
+  border-radius: 4px;
+  border: none;
+  margin-bottom: 20px;
+  width: 100%; 
   font-size: 16px;
+  box-sizing: border-box; 
 }
 
 button {
-  background: #141414;
+  background-color: #007bff;
   color: #fff;
-  font-size: 18px;
-  padding: 12px 0;
+  border: none;
+  padding: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
   width: 100%;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#video-chat-room {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+  flex-wrap: wrap; 
+}
+
+.video {
+  width: 100%;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: black;
+}
+
+@media (min-width: 600px) {
+  .video {
+    width: 45%; 
+  }
+}
+
+@media (min-width: 768px) {
+  .card {
+    width: 50%; 
+  }
+}
+
+@media (min-width: 992px) {
+  .card {
+    width: 40%; 
+  }
+
+  .video {
+    width: 45%; 
+  }
 }
