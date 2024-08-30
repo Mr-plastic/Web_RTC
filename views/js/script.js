@@ -39,7 +39,7 @@ socket.on("created", function () {
     .then(function (stream) {
       /* use the stream */
       userStream = stream;
-      divVideoChatLobby.style = "display:none";
+      divVideoChatLobby.style = "display:none"; /*隱藏房間創建頁面*/
       userVideo.srcObject = stream;
       userVideo.onloadedmetadata = function (e) {
         userVideo.play();
