@@ -11,13 +11,26 @@
     <div id="video-chat-lobby" class="card">
         <h2 class="text">加入視訊聊天室</h2>
         <input id="roomName" type="text" placeholder="輸入房間名稱" />
+        <!-- <input id="userName" type="text" placeholder="輸入使用者姓名" /> -->
         <button id="join">加入房間</button>
     </div>
-    <div id="video-chat-room" class="hidden">
-        <video id="user-video" class="video" autoplay></video>
-        <video id="peer-video" class="video" autoplay></video>
+    <div id="video-chat-room-wrapper">
+        <div id="video-chat-room" class="video-room">
+            <video id="user-video" class="video" autoplay></video>
+            <video id="peer-video" class="video" autoplay></video>
+        </div>
+        <div id="text-chat" class="chat hidden">
+            <div id="chat-messages"></div>
+            <div id="chat-input-wrapper">
+                <input id="chat-input" type="text" placeholder="輸入訊息" />
+                <button id="send-message">➤</button>
+            </div>
+        </div>
+    </div>
+    <div id="bottom-toolbar">
+        <button id="toggle-chat" class="hidden round-button">💬</button>
     </div>
     <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
-    <script src="/js/script.js"></script>
+    <script src="/js/video.js"></script>
 </body>
 </html>

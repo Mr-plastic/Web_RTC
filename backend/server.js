@@ -21,17 +21,17 @@ io.on("connection", function (socket) {
 
   //Triggered when a peer hits the join room button.
 
-  socket.on("join", function (roomName) {
+  socket.on("join", function (roomName,userName) {
     let rooms = io.sockets.adapter.rooms;
     let room = rooms.get(roomName);
-
+    let username = rooms.get(userName);
     //room == undefined when no such room exists.
     if (room == undefined) {
-      socket.join(roomName);
+      socket.join(roomName,username);
       socket.emit("created");
     } else if (room.size == 1) {
       //room.size == 1 when one person is inside the room.
-      socket.join(roomName);
+      socket.join(roomName,username);
       socket.emit("joined");
     } else {
       //when there are already two people inside the room.
