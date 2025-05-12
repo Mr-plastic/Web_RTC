@@ -1,12 +1,11 @@
 const express = require("express");
 const socket = require("socket.io");
+const http = require("http");
 const app = express();
 
 //Starts the server
 
-let server = app.listen(3000, function () {
-  console.log("Server is running");
-});
+const server = http.createServer(app);
 
 app.use(express.static("public"));
 
@@ -64,3 +63,11 @@ io.on("connection", function (socket) {
     socket.broadcast.to(roomName).emit("answer", answer); //Sends Answer to the other peer in the room.
   });
 });
+
+module.exports = server;
+
+if (require.main === module) {
+  server.listen(3000, () => {
+    console.log("Server is running");
+  });
+}

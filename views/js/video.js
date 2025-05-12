@@ -10,7 +10,6 @@ let creator = false;
 let rtcPeerConnection;
 let userStream;
 
-
 //lobby
 let joinButton = document.getElementById("join");
 
@@ -33,7 +32,8 @@ let iceServers = {
 joinButton.addEventListener("click", function () { //join room btn
     if (roomInput.value == "") {
       alert("Please enter a room name");
-    } else {
+    }
+    else{
       roomName = roomInput.value;
       socket.emit("join", roomName);
       divVideoChatLobby.classList.add("hidden");
@@ -211,7 +211,5 @@ function appendMessage(message) {
   chatMessages.scrollTop = chatMessages.scrollHeight; 
 }
 
-
-// text-chat
 
 
