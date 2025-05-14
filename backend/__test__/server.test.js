@@ -1,5 +1,5 @@
     const io = require("socket.io-client");
-    const server = require("../server"); // ← 如果這裡拿到 undefined，表示 server.js 沒正確 export
+    const server = require("../server"); 
 
     let client1, client2;
     const SOCKET_URL = "http://localhost:3000";
